@@ -45,4 +45,4 @@
 
 ## 関連リンク
 
-- [Shell Scripting Tutorial](https://www.shellscript.sh/index.html)
+- [Apache2とPHP7.2を動かす](https://www.yokoweb.net/2018/05/12/ubuntu-18_04-apache2-php72/)

@@ -46,3 +46,5 @@
 ## 関連リンク
 
 - [Apache2とPHP7.2を動かす](https://www.yokoweb.net/2018/05/12/ubuntu-18_04-apache2-php72/)
+- [一週間で身につくMySQL](http://web.sevendays-study.com/mysql/index.html)
+- [php.net](https://www.php.net/manual/ja/index.php)

@@ -4,6 +4,27 @@
 
 ## 環境構築
 
+### apache2(Webサーバ)の設定
+
+- インストール
+	- $ sudo apt install apache2
+- 状態確認
+	- $ sudo service apache2 status
+
+- 再起動
+	- $ sudo service apache2 restart
+- バーチャルホストの切り替え
+	- デフォルトの無効化
+		- $ sudo a2dissite 000-default.conf
+	- ss.confの有効化
+		- $ sudo a2ensite php.conf
+	- 設定の再読込
+		- $ sudo service apache2 reload
+
+### サーバの設定
+- タイムゾーンの設定
+	- $ sudo timedatectl set-timezone Asia/Tokyo
+
 ### phpインストール
 
 #### リポジトリの追加

@@ -41,6 +41,16 @@
 - sudo a2enconf php7.2-fpm
 - sudo service apache2 restart
 
+#### 動作確認
+- touch /var/www/html/test.php
+- vi /var/www/html/test.php
+
+``` php
+<?php
+phpinfo();
+?>
+```
+
 ### MariaDB(dbサーバ)
 
 #### インストール

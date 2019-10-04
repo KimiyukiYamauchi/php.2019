@@ -38,6 +38,7 @@
 
 #### enable php7.2-fpm
 
+- sudo a2enmod proxy_fcgi setenvif
 - sudo a2enconf php7.2-fpm
 - sudo service apache2 restart
 

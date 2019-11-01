@@ -13,13 +13,6 @@
 
 - 再起動
 	- $ sudo service apache2 restart
-- バーチャルホストの切り替え
-	- デフォルトの無効化
-		- $ sudo a2dissite 000-default.conf
-	- ss.confの有効化
-		- $ sudo a2ensite php.conf
-	- 設定の再読込
-		- $ sudo service apache2 reload
 
 ### サーバの設定
 - タイムゾーンの設定
@@ -31,10 +24,11 @@
 
 - sudo add-apt-repository ppa:ondrej/php
 - sudo apt update
+- sudo apt upgrade
 
 #### php7.2と関連モジュール
 
-- sudo apt install php7.2 php7.2-common php7.2-cli php7.2-fpm php7.2-mysql php7.2-dev php7.2-mbstring php7.2-zip php7.2-xml
+- sudo apt install php7.2 php7.2-common php7.2-cli php7.2-fpm php7.2-mysql php7.2-dev php7.2-mbstring php7.2-zip php7.2-xml php7.2-gd
 
 #### enable php7.2-fpm
 
@@ -43,8 +37,15 @@
 - sudo service apache2 restart
 
 #### 動作確認
-- touch /var/www/html/test.php
-- vi /var/www/html/test.php
+- sudo touch /var/www/html/test.php
+- sudo vi /var/www/html/test.php
+- ブラウザで以下にアクセスし設定情報が表示されること  
+「http://192.168.33.10/test.php」
+
+#### エラーメッセージの表示
+- sudo vi /etc/php/7.2/fpm/php.ini
+- 「display_errors」で検索、「Off 」-> 「On」
+- sudo service apache2 restart
 
 ``` php
 <?php

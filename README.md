@@ -75,6 +75,9 @@ phpinfo();
 ##### 以降は以下で接続可能
 - mysql -u root -p
 
+### ImageMagickのインストール
+- sudo apt install imagemagick
+
 
 ## 関連リンク
 

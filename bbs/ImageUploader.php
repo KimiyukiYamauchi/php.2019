@@ -32,6 +32,28 @@ class ImageUploader {
         exit;
     }
 
+    public function getImages() {
+        $images = [];
+        $files = [];
+        $imageDir = opendir(IMAGES_DIR);
+        while (false !== ($file = readdir($imageDir))) {
+            if ($file === '.' || $file === '..') {
+                continue;
+            }
+            $files[] = $file;
+            if (file_exists(THUMBNAIL_DIR . '/' . $file)) {
+                $images[] = basename(THUMBNAIL_DIR) . '/' . $file;
+            } else {
+                $images[] = basename(IMAGES_DIR) . '/' . $file;
+            }
+
+        }
+
+        array_multisort($files, SORT_DESC, $images);
+        return $images;
+
+    }
+
     private function _createThumbnail($savepath) {
         $imagesize = getimagesize($savepath);
         $width = $imagesize[0];

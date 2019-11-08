@@ -23,13 +23,29 @@ class ImageUploader {
             // create thumbnail
             $this->_createThumbnail($savepath);
 
+            $_SESSION['success'] = 'Upload Done';
+
         } catch (\Exception $e) {
-            echo $e->getMessage();
-            exit;
+            $_SESSION['error'] = $e->getMessage();
         }
         // redirect
         header('Location: http://' . $_SERVER['HTTP_HOST'] . '/bbs');
         exit;
+    }
+
+    public function getResults() {
+        $success = null;
+        $error = null;
+        if (isset($_SESSION['success'])) {
+            $success = $_SESSION['success'];
+            unset($_SESSION['success']);
+        }
+        if (isset($_SESSION['error'])) {
+            $error = $_SESSION['error'];
+            unset($_SESSION['error']);
+        }
+
+        return [$success, $error];
     }
 
     public function getImages() {

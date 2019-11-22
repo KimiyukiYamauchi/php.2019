@@ -12,7 +12,8 @@ $(function () {
       '_ajax.php',
       {
         id: id,
-        mode: 'update'
+        mode: 'update',
+        token: $('#token').val()
       },
       function (res) {
         if (res.state === '1') {

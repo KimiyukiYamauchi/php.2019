@@ -6,6 +6,8 @@ class Todo {
   private $_db;
 
   public function __construct () {
+    $this->_createToken();
+
     try {
       $this->_db = new \PDO(DSN, DB_USERNAME, DB_PASSWORD);
       $this->_db->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
@@ -21,6 +23,8 @@ class Todo {
   }
 
   public function post() {
+    $this->_validateToken();
+
     if (!isset($_POST['mode'])) {
       throw new \Exception('mode not set!');
     }
@@ -63,6 +67,25 @@ class Todo {
 
   private function _delete() {
   }
+
+  private function _createToken() {
+    if(!isset($_SESSION['token'])) {
+      $_SESSION['token'] = bin2hex(openssl_random_pseudo_bytes(16));
+    }
+  }
+
+  private function _validateToken() {
+    if (
+      !isset($_SESSION['toke']) ||
+      !isset($_POST['token']) ||
+      $_SESSION['token'] !== $_POST['token']
+    ) {
+      throw new \Exception('invalid token!');
+    }
+  }
+
+
+
 
 }
 ?>

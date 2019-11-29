@@ -17,6 +17,11 @@ class Quiz {
     return $this->_quizSet[$_SESSION['current_num']];
   }
 
+  public function checkAnswer() {
+    $correctAnswer = $this->_quizSet[$_SESSION['current_num']]['a'][0];
+    return $correctAnswer;
+  }
+
   private function _setup() {
     $this->_quizSet[] = [
       'q' => 'What is A?',

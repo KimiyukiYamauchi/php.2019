@@ -76,16 +76,12 @@ class Todo {
 
   private function _validateToken() {
     if (
-      !isset($_SESSION['toke']) ||
+      !isset($_SESSION['token']) ||
       !isset($_POST['token']) ||
       $_SESSION['token'] !== $_POST['token']
     ) {
       throw new \Exception('invalid token!');
     }
   }
-
-
-
-
 }
 ?>
